@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laterrr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <div class="bg-leaves" aria-hidden="true">
+    <svg class="leaf l1" viewBox="0 0 80 120" fill="none"><path d="M40 110 C10 80 0 50 20 20 C30 5 50 5 60 20 C80 50 70 80 40 110Z" fill="currentColor"/></svg>
+    <svg class="leaf l2" viewBox="0 0 80 120" fill="none"><path d="M40 110 C10 80 0 50 20 20 C30 5 50 5 60 20 C80 50 70 80 40 110Z" fill="currentColor"/></svg>
+    <svg class="leaf l3" viewBox="0 0 80 120" fill="none"><path d="M40 110 C10 80 0 50 20 20 C30 5 50 5 60 20 C80 50 70 80 40 110Z" fill="currentColor"/></svg>
+    <svg class="leaf l4" viewBox="0 0 60 90" fill="none"><path d="M30 82 C8 60 0 38 15 15 C22 4 38 4 45 15 C60 38 52 60 30 82Z" fill="currentColor"/></svg>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon">🐊</span>
+      <span class="logo-text">Laterrr</span>
+    </div>
+    <div class="header-right">
+      <span class="item-count" id="itemCount">0 saved</span>
+      <button class="icon-btn" id="toggleAdd" title="Save current page" aria-label="Save current page">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ADD PANEL -->
+  <div class="add-panel" id="addPanel" style="display:none;">
+    <div class="current-page-row" id="currentPageRow">
+      <div class="page-thumb" id="pageFavicon">🌐</div>
+      <div class="page-info">
+        <div class="page-title" id="pageTitle">Loading...</div>
+        <div class="page-url" id="pageUrl">...</div>
+      </div>
+    </div>
+
+    <div class="cat-grid">
+      <button class="cat-btn active" data-cat="shop">🛍 Shop</button>
+      <button class="cat-btn" data-cat="watch">▶ Watch</button>
+      <button class="cat-btn" data-cat="game">🎮 Game</button>
+      <button class="cat-btn" data-cat="task">✅ Task</button>
+      <button class="cat-btn" data-cat="inspo">✨ Inspo</button>
+      <button class="cat-btn" data-cat="read">📖 Read</button>
+    </div>
+
+    <input class="note-input" id="noteInput" type="text" placeholder="Note e.g. 'buy after salary 💸'" maxlength="80"/>
+
+    <div class="deadline-row" id="deadlineRow" style="display:none;">
+      <label class="deadline-label">Deadline</label>
+      <input type="date" class="date-input" id="deadlineInput"/>
+    </div>
+
+    <button class="save-btn" id="saveBtn">Save for later 🌱</button>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters" id="filtersRow">
+    <button class="filter-chip active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="shop">Shop</button>
+    <button class="filter-chip" data-filter="watch">Watch</button>
+    <button class="filter-chip" data-filter="game">Game</button>
+    <button class="filter-chip" data-filter="task">Task</button>
+    <button class="filter-chip" data-filter="inspo">Inspo</button>
+    <button class="filter-chip" data-filter="read">Read</button>
+  </div>
+
+  <!-- LIST -->
+  <div class="items-list" id="itemsList">
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🌾</div>
+      <div class="empty-text">Nothing saved yet.<br>Hit <strong>+</strong> to stash something.</div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

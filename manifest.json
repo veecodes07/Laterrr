@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Laterr",
+  "version": "1.0",
+  "description": "Save anything for later.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Laterr",
+    "default_icon": {
+      "16": "favicon-32x32.png",
+      "32": "favicon-32x32.png",
+      "48": "favicon-32x32.png",
+      "128": "android-chrome-192x192.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "tabs", "alarms", "notifications"],
+  "icons": {
+    "16": "favicon-32x32.png",
+    "32": "favicon-32x32.png",
+    "48": "favicon-32x32.png",
+    "128": "android-chrome-192x192.png"
+  }
+}
