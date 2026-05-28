@@ -23,7 +23,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { width: 420px; }
+html { width: 420px;
+ border-radius: 16px;
+  overflow: hidden;
+
+}
 
 body {
   font-family: 'Bricolage Grotesque', sans-serif;
@@ -36,6 +40,8 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(45, 90, 39, 0.18);
 }
 
 /* Decorative leaves */

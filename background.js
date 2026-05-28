@@ -1,3 +1,40 @@
+// ── Right-click context menu ───────────────────────────────────────────────
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    id: 'save-to-laterrr',
+    title: '🐊 Save to Laterrr',
+    contexts: ['link', 'page']
+  });
+});
+
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  const url   = info.linkUrl || info.pageUrl;
+  const title = info.linkUrl ? url : (tab.title || url);
+
+  chrome.storage.sync.get(['laterr_items'], ({ laterr_items = [] }) => {
+    const newItem = {
+      id:      Date.now(),
+      title:   title,
+      url:     url,
+      cat:     'inspo',
+      note:    '',
+      deadline: '',
+      savedAt: Date.now(),
+    };
+
+    laterr_items.unshift(newItem);
+    chrome.storage.sync.set({ laterr_items }, () => {
+      chrome.notifications.create(String(Date.now()), {
+        type:     'basic',
+        iconUrl:  'favicon-32x32.png',
+        title:    '🐊 Saved to Laterrr!',
+        message:  title.length > 60 ? title.slice(0, 60) + '...' : title,
+        priority: 1
+      });
+    });
+  });
+});
+
 chrome.alarms.create('checkDeadlines', { periodInMinutes: 60 });
 
 chrome.alarms.onAlarm.addListener(() => {

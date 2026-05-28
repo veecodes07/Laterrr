@@ -16,7 +16,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage", "tabs", "alarms", "notifications"],
+  "permissions": ["storage", "tabs", "alarms", "notifications", "downloads", "contextMenus"],
   "icons": {
     "16": "favicon-32x32.png",
     "32": "favicon-32x32.png",

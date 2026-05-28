@@ -275,3 +275,32 @@ function svgOpen() {
 function svgTrash() {
   return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>`;
 }
+
+// ── Export to CSV ─────────────────────────────────────────────────────────────
+document.getElementById('exportBtn').addEventListener('click', () => {
+  if (items.length === 0) return;
+
+  const rows = [
+    ['Title', 'URL', 'Category', 'Note', 'Deadline', 'Saved At']
+  ];
+
+  items.forEach(item => {
+    rows.push([
+      `"${(item.title  || '').replace(/"/g, '""')}"`,
+      `"${(item.url    || '').replace(/"/g, '""')}"`,
+      item.cat || '',
+      `"${(item.note   || '').replace(/"/g, '""')}"`,
+      item.deadline || '',
+      item.savedAt ? new Date(item.savedAt).toLocaleDateString() : ''
+    ]);
+  });
+
+  const csv     = rows.map(r => r.join(',')).join('\n');
+  const blob    = new Blob([csv], { type: 'text/csv' });
+  const url     = URL.createObjectURL(blob);
+  const a       = document.createElement('a');
+  a.href        = url;
+  a.download    = 'laterrr-export.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+});
