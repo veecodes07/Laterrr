@@ -28,9 +28,11 @@ Laterrr fixes that.
 
 ### features
 - one click save from any tab
+- **right-click any link** on any page → "🐊 Save to Laterrr" — no popup needed
 - deadline alerts for tasks — chrome notifies you on the day
 - filter by category
 - notes on every save
+- export all your saves to CSV
 - syncs across your chrome devices
 
 ---
@@ -47,4 +49,9 @@ Laterrr fixes that.
 
 ---
 
-<sub>built with plain html, css & js. no frameworks. no bs.</sub>
+### built with
+plain html, css & js. no frameworks. no accounts. no bs.
+
+---
+
+<sub>made by veecodes07 🐊</sub>
